@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "go-routine"
+		},
+		{
+			"path": "rust-routine"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}

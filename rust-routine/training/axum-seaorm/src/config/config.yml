@@ -1,0 +1,6 @@
+app:
+  name: "contract-maneger"
+  version: "1.0.0"
+  address: "127.0.0.1:3000"
+database:
+  url: "postgres://postgres:axemc1234@127.0.0.1:5432/seaorm"

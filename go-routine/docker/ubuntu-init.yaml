@@ -1,0 +1,11 @@
+# ubuntu-init
+# multipass launch -c 2 -m 4g -d 100g -n develop --cloud-init ubuntu-init.yaml
+package_update: true
+users:
+  - name: root
+    ssh-authorized-keys:
+      - 
+packages:
+  - net-tools
+runcmd:
+  - echo "Hello Multipass!"

@@ -1,0 +1,80 @@
+[package]
+name = "api-service"
+version = "0.1.0"
+edition.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+# hello
+[[bin]]
+name = "hello-grpc-server"
+path = "src/micro/hello/grpc_server.rs"
+[[bin]]
+name = "hello-grpc-client"
+path = "src/micro/hello/grpc_client.rs"
+
+[dependencies]
+volo-gen = { path = "./volo-gen" }
+axum = "0.6.1"
+once_cell = "1.16.0"
+sea-orm = { version = "0.10.6", features = [
+    "sqlx-postgres",
+    "runtime-tokio-native-tls",
+    "macros",
+    "mock",
+    "with-chrono",
+    "with-time",
+    "with-json",
+    "with-rust_decimal",
+    "with-uuid",
+    "postgres-array",
+    "debug-print",
+] }
+serde = { version = "1.0.150", features = ["derive"] }
+serde_json = "1.0.89"
+serde_yaml = "0.9.14"
+tower = "0.4.13"
+tower-cookies = "0.8.0"
+config = { version = "0.13.3", features = ["yaml"] }
+tower-http = { version = "0.3.5", features = ["fs"] }
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.16", features = ["env-filter"] }
+lazy_static = "1.4.0"
+
+volo.workspace = true
+volo-grpc.workspace = true
+pilota.workspace = true
+
+anyhow.workspace = true
+async-trait.workspace = true
+tokio = { workspace = true, features = ["full"] }
+
+[profile.release]
+opt-level = 3
+debug = true
+debug-assertions = false
+overflow-checks = false
+lto = true
+panic = 'unwind'
+incremental = false
+codegen-units = 1
+rpath = false
+
+[workspace]
+members = ["volo-gen"]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+
+[workspace.dependencies]
+# we recommend to use the latest framework version for new features and bug fixes
+volo = "*"
+volo-build = "*"
+volo-grpc = "*"
+pilota = "*"
+
+anyhow = "1"
+async-trait = "0.1"
+futures = "0.3"
+tokio = "1"
