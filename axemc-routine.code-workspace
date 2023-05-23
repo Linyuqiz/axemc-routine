@@ -4,6 +4,9 @@
 			"path": "go-routine"
 		},
 		{
+			"path": "rust-routine/api-service"
+		},
+		{
 			"path": "rust-routine"
 		},
 		{
