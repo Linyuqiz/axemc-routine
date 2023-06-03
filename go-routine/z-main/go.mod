@@ -1,3 +1,3 @@
-module axemc.com/z-main-routine
+module axemc.com/z-main
 
-go 1.19
+go 1.20
